@@ -1,0 +1,75 @@
+<div class="fullheight toi-show">
+
+  <div class="toi position-relative">
+    <%= cl_image_tag @toi.photo.key, crop: :fill, class: "img-show" %>
+    <div class="position-absolute start-0 end-0 bottom-0 mb-4 d-flex justify-content-between">
+      <h5 class="card-title category px-4 py-2 rounded-pill <%= @toi.category.name.downcase %>">#<%= @toi.category.name.downcase %> </h5>
+
+    </div>
+  </div>
+
+  <div class="container container-position position-relative">
+  <div class="d-flex justify-content-between">
+    <h1><%= @toi.title %></h1>
+    <div class="bookmark-wrapper" data-controller="bookmark" data-action="click->bookmark#toggle">
+      <% if current_user.bookmarks.find_by(toi: @toi)&.saved %>
+        <%= link_to bookmark_path(current_user.bookmarks.find_by(toi: @toi)),
+                    method: :delete,
+                    data: {
+                      # action: "click->bookmark#toggle",
+                      controller: "bookmark",
+                      turbo_method: "delete"
+                    } do %>
+          <i class="fas fa-bookmark fs-3   <%= @toi.category.name.downcase %>-color" data-bookmark-target="icon"></i>
+        <% end %>
+      <% else %>
+        <%= link_to toi_bookmarks_path(@toi),
+                    data: {
+                      # action: "click->bookmark#toggle",
+                      controller: "bookmark",
+                      turbo_method: "post"
+                    } do %>
+          <i class="far fa-bookmark fs-3 <%= @toi.category.name.downcase %>-color" data-bookmark-target="icon"></i>
+        <% end %>
+      <% end %>
+    </div>
+  </div>
+    <p class="text-white ms-3"><%= @toi.description %></p>
+
+    <div class="hype-meter">
+      <div class="progress" style="width: 100%;">
+        <div class="progress-bar  <%= @toi.category.name.downcase%>-meter" role="progressbar">
+          <% @post_ratings.group_by(&:last).each do |rating, posts| %>
+          <%= cl_image_tag posts.first.first.user.photo.key, class: "avatar", style: "left: #{[[rating.to_i * 10, 5].max, 90].min}%; position: absolute;" %>
+            <% if posts.size > 1 %>
+              <div class="count" style="<%= "left: #{rating.to_i * 11}%; position: relative;"  %>">
+                <span>+<%= posts.size - 1 %></span>
+              </div>
+            <% end %>
+          <% end %>
+        </div>
+      </div>
+    </div>
+
+    <% @posts.each do |post| %>
+      <%= link_to user_path(post.user) do %>
+        <div class="card <%= @toi.category.name.downcase%>-border ">
+          <div class="infos d-flex justify-content-between align-items-center w-100 ">
+            <div class="d-flex align-items-center">
+              <%= cl_image_tag post.user.photo.key, class: "avatar"  %>
+              <div class="user-created-post">
+                <h3> @<%= post.user.username %> </h3>
+                <p class="date mb-0">Posté le <%= l(post.created_at.to_date, format: :long) %></p>
+              </div>
+            </div>
+            <div class="stars text-primary color-star">
+              <%= post.starify(post.rating).html_safe %>
+            </div>
+          </div>
+          <p class="sizing-review mb-auto"><%= post.review %></p>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+  
+</div>

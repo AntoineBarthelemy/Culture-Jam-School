@@ -1,0 +1,202 @@
+#explore-color{
+  a {
+    color: white;
+    padding: 10px;
+  }
+
+  .specific-sett {
+    text-align: center;
+  }
+
+  .filter-btn.cinema-active {
+    background-color: $flashy-pink!important;
+  }
+  .filter-btn.litterature-active {
+    background-color: $flashy-green!important;
+  }
+
+  .filter-btn.spectacle-active {
+    background-color: $flashy-yellow!important;
+    color: black;
+  }
+
+  .filter-btn.exposition-active {
+    background-color: $flashy-purple!important;
+    color: black;
+  }
+
+  .filter-btn {
+    display: inline-block;
+    font-family: $headers-font;
+    border-radius: 10px;
+    text-decoration: none;
+    padding: 5px 10px;
+    background-color: gray;
+    margin-right: 10px;
+    color: white;
+  }
+
+  .active {
+    font-family: $headers-font;
+    border-radius: 10px;
+    text-decoration: none;
+    padding: 5px 10px;
+    margin-right: 10px;
+    color: white;
+    background-color: $flashy-pink;
+  }
+
+  .category-card{
+    background-color: $dark-gray;
+    border-radius: 40px;
+    margin-bottom: 1.25rem;
+    padding: 1.25rem;
+    color: white;
+
+    display: flex;
+    align-items: center; // Pour aligner les éléments verticalement
+
+    .category-icon-box {
+      flex: 0 0 1.5em; // Fixer une largeur pour la partie de la boîte contenant l'icône
+    }
+    .category-icon {
+      height: 3em; // Fixer la hauteur des icônes
+    }
+
+    .ms-2 {
+      margin-left: 1.5rem !important;
+    }
+  }
+
+  .card {
+    background-color: $dark-gray;
+    margin-bottom: 1.25rem;
+    border-radius: 40px;
+    padding: 20px;
+    color: white;
+    margin-right: 1rem;
+    margin-left: 1rem;
+  }
+
+  h3 {
+    margin-top: 0.25rem;
+    margin-bottom: 0.25rem;
+  }
+
+  .toi-infos {
+    padding-top: 15px;
+    font-family: $headers-font;
+    font-weight: 100;
+
+    h2 {
+      color: white;
+      margin-left: 0rem;
+      font-weight: 600;
+    }
+  }
+
+  .avatar-mini {
+  width: 30px;
+  height: 30px;
+  }
+
+  .text-comment {
+    font-family: $body-font;
+    font-weight: 300;
+    font-size: 14px;
+    line-height: 15px;
+    margin-left: 5px;
+    color: lightgrey;
+  }
+
+  .litterature {
+    background-color: $flashy-green;
+  }
+  .litterature-color {
+    color: $flashy-green;
+  }
+  .litterature-border {
+    position: relative;
+    border-radius: 40px;
+  }
+  .litterature-border::before {
+    content: '';
+    position: absolute;
+    top: -4px;
+    right: -4px;
+    bottom: -4px;
+    left: -4px;
+    z-index: -1;
+    background-image: linear-gradient(45deg, $flashy-green, white);
+    border-radius: inherit;
+    background-clip: padding-box;
+  }
+  .cinema{
+    background-color: $flashy-pink;
+  }
+  .cinema-color {
+    color: $flashy-pink;
+  }
+  .cinema-border {
+    position: relative;
+    border-radius: 40px;
+  }
+  .cinema-border::before {
+    content: '';
+    position: absolute;
+    top: -4px;
+    right: -4px;
+    bottom: -4px;
+    left: -4px;
+    z-index: -1;
+    background-image: linear-gradient(45deg, $flashy-pink, white);
+    border-radius: inherit;
+    background-clip: padding-box;
+  }
+
+  .spectacle {
+    background-color: $flashy-yellow;
+  }
+  .spectacle-color {
+    color: $flashy-yellow;
+  }
+  .spectacle-border {
+    position: relative;
+    border-radius: 40px;
+  }
+  .spectacle-border::before {
+    content: '';
+    position: absolute;
+    top: -4px;
+    right: -4px;
+    bottom: -4px;
+    left: -4px;
+    z-index: -1;
+    background-image: linear-gradient(45deg, $flashy-yellow, white);
+    border-radius: inherit;
+    background-clip: padding-box;
+  }
+
+  .exposition {
+    background-color:$flashy-purple;
+  }
+  .exposition-color {
+    color:$flashy-purple;
+  }
+  .exposition-border {
+    position: relative;
+    border-radius: 40px;
+  }
+  .exposition-border::before {
+    content: '';
+    position: absolute;
+    top: -4px;
+    right: -4px;
+    bottom: -4px;
+    left: -4px;
+    z-index: -1;
+    background-image: linear-gradient(45deg, $flashy-purple, white);
+    border-radius: inherit;
+    background-clip: padding-box;
+  }
+}

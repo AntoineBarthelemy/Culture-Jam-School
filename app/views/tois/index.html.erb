@@ -1,0 +1,125 @@
+<div id="explore-color" class="container fullheight search-page">
+
+  <% if params[:category_id].present? %>
+
+    <% category_icons = {
+      'cinema' => 'fa-film',
+      'spectacle' => 'fa-masks-theater',
+      'litterature' => 'fa-book',
+      'exposition' => 'fa-building-columns'
+    } %>
+
+    <div class="mt-4 page-title d-flex align-items-center">
+      <i class="fa-solid <%= category_icons[@category.name.downcase] %> fa-3x me-2 <%= @category.name.downcase %>-color"></i>
+      <h1 class="<%= @category.name.downcase %>-color m-0 align-self-center"><%= @category.name %>
+      </h1>
+    </div>
+
+    <%= form_with url: tois_path, method: :get, local: true, novalidate: true, class: 'simple_form search' do |form| %>
+      <% if params[:category_id].present? %>
+        <%= hidden_field_tag :category_id, params[:category_id] %>
+      <% end %>
+      <div class="search-form-control form-group">
+        <%= form.text_field :query, id: 'search_query', placeholder: 'Rechercher par mot-clé', class: 'form-control string required' %>
+        <button type="submit" class="btn btn-flat">
+        <i class="fas fa-search"></i>
+        </button>
+      </div>
+    <% end %>
+
+    <% average = 0 %>
+    <div class="specific-sett">
+
+      <%= link_to "Les mieux notés", (params[:filter_criteria] == "rating" ? tois_path(@search_params) : tois_path(@search_params.merge(filter_criteria: "rating"))), class: "filter-btn #{ @category.name.downcase + '-active' if params[:filter_criteria] == 'rating'}" %>
+
+      <%= link_to "Les plus commentés", (params[:filter_criteria] == "posts" ? tois_path(@search_params) : tois_path(@search_params.merge(filter_criteria: "posts"))), class: "filter-btn #{ @category.name.downcase + '-active' if params[:filter_criteria] == 'posts'}" %>
+
+    </div>
+
+    <% @tois.each_with_index do |toi, index| %>
+      <%= link_to toi_path(toi) do %>
+        <div id="avatar-size" class="card <%= @category.name.downcase %>-border">
+
+          <div class="category-toi">
+            <%= cl_image_tag toi.photo.key, height: 300, crop: :fill, class: "img-toi" %>
+
+            <div class="toi-infos">
+
+              <% if toi.posts.last %>
+                <div class="d-flex flex-row justify-content-between">
+                  <div class="stars text-primary color-star">
+                    <%=toi.starify_average(current_user).html_safe %>
+                  </div>
+                </div>
+              <% end %>
+
+              <h2 class="mt-0"><%= toi.title %></h2>
+              <% if toi.posts.last %>
+                <strong><%= toi.posts.count %> avis</strong>
+              <% end %>
+
+              <% if toi.posts.any? %>
+                <div class="d-flex align-items-center mt-2">
+                  <div class="d-flex avatar-mini friend-photo-first">
+                    <% if toi.posts.count == 1 %>
+                      <%= image_tag toi.posts.last.user.photo.url, class: 'rounded-circle mr-2 avatar-mini', size: '20x20' %>
+                    <% else %>
+                      <% toi.posts.last(2).each_with_index do |post, index| %>
+                        <% if index == 0 %>
+                          <div style="position: relative;"> <!-- Première photo -->
+                            <%= image_tag post.user.photo.url, class: 'rounded-circle mr-2 avatar-mini', size: '20x20' %>
+                          </div>
+                        <% else %>
+                          <div style="position: absolute; margin-left: 15px;"> <!-- Deuxième photo -->
+                            <%= image_tag post.user.photo.url, class: 'rounded-circle mr-2 avatar-mini', size: '20x20' %>
+                          </div>
+                        <% end %>
+                      <% end %>
+                    <% end %>
+                  </div>
+                  <div class="text-comment" <% if toi.posts.count > 1 %>style="margin-left: 20px;"<% end %>>
+                    <% if toi.posts.count == 1 %>
+                      <strong><%= toi.posts.last.user.username %></strong> a donné son avis
+                    <% else %>
+                      <strong><%= toi.posts.last.user.username %></strong> et d'autres ont donné leur avis
+                    <% end %>
+                  </div>
+                </div>
+              <% else %>
+                <div class="text-comment mt-2 ml-0">
+                  Pas encore d'avis : donne le tiens !
+                </div>
+              <% end %>
+
+            </div>
+
+          </div>
+        </div>
+      <% end %>
+    <% end %>
+
+  <% else %>
+
+    <div class="my-5">
+      <h1 class="page-title">Explore<i class="fa-solid fa-bolt icon-logo"></i></h1>
+    </div>
+
+    <% category_icons = {
+      'cinema' => 'fa-film',
+      'spectacle' => 'fa-masks-theater',
+      'litterature' => 'fa-book',
+      'exposition' => 'fa-building-columns'
+    } %>
+
+    <% Category.all.each do |cat| %>
+      <div id="avatar-size" class="category-card p-3 <%= cat.name.downcase %>">
+        <%= link_to tois_path(category_id: cat.id), class: 'fw-bold text-black h3 d-flex' do %>
+          <i class="fa-solid <%= category_icons[cat.name.downcase] %> fa-2x ms-2 category-icon-box"></i>
+          <h2 class="category-title"><%= cat.name %></h2>
+        <% end %>
+      </div>
+
+    <% end %>
+
+  <% end %>
+</div>

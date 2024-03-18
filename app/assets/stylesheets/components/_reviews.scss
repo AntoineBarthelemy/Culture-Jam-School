@@ -1,0 +1,24 @@
+.card {
+  background-color: $dark-gray;
+  margin-bottom: 1.25rem;
+  padding: 1.25rem;
+  border-radius: 40px;
+  color: white;
+}
+
+.img-show {
+  height: 385px;
+  width: 100%;
+  border-radius: 25px;
+  object-fit: cover;
+}
+
+.category {
+  position: relative;
+  bottom: 67%;
+  left: 10px;
+}
+
+.stars {
+  color: white !important;
+}

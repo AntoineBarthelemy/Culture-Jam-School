@@ -1,0 +1,52 @@
+<div class="container bookmarks fullheight" data-controller="category-filter">
+
+  <div class="my-5 page-title">
+    <h2>Mes favoris<i class="fa-solid fa-eye icon-logo"></i></h2>
+  </div>
+
+  <div class="d-flex justify-content-center">
+    <div class="custom-categories d-flex" style="overflow-x: auto; white-space: nowrap;">
+      <div class="category-btn active" data-action="click->category-filter#filter" data-category-id="">
+        Tous
+      </div>
+      <% @categories.each do |category| %>
+        <div class="category-btn <%= category.name.downcase %>" data-action="click->category-filter#filter" data-category-id="<%= category.id %>">
+          <%= category.name %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+
+  <div class="bookmarks-container" data-category-filter-target="categoryContainer">
+    <% @bookmarks_by_category.each do |category, bookmarks| %>
+      <% if bookmarks.any? %>
+        <div class="category-section" data-category-id="<%= category.id %>">
+
+          <div class="d-flex justify-content-between align-items-center">
+            <h3>#<%= category.name %></h3>
+            <%= link_to "See all", "#", class: "see-all-link #{category.name.downcase}", data: { action: 'click->category-filter#seeAll', category_id: category.id } %>
+          </div>
+
+          <div class="bookmarks-list" data-category-filter-target="bookmarksList">
+            <% if bookmarks.any? %>
+              <% bookmarks.each do |bookmark| %>
+                <div class="bookmark-item">
+                  <%= link_to toi_path(bookmark) do %>
+                    <div class="bookmark-img-wrapper">
+                      <%= cl_image_tag bookmark.photo.key, class: "bookmark-img" %>
+                      <h5 class="bookmark-title"><%= bookmark.title %></h5>
+                    </div>
+                  <% end %>
+                </div>
+              <% end %>
+            <% else %>
+              <p class="white-text">Aucun favori pour cette catégorie.
+              <br>Explorez et sauvegardez plus de Tois !</p>
+            <% end %>
+          </div>
+
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+</div>

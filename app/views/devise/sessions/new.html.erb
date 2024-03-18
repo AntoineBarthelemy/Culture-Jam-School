@@ -1,0 +1,22 @@
+
+<div class="container p-4 text-center text-white sign-in">
+  <h1 class= "fa-5x my-5 title-sign-in">Culture Jam</h1>
+  <%= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+    <div class="form-inputs">
+      <%= f.input :username,
+                  required: false,
+                  autofocus: true,
+                  label: false,
+                  input_html: { autocomplete: "username", class: "rounded-4 border-3 border-primary placeholder-white", placeholder: "Nom d'utilisateur" } %>
+      <%= f.input :password,
+                  required: false,
+                  label: false,
+                  input_html: { autocomplete: "current-password", class: "rounded-4 border-3 border-primary placeholder-white", placeholder: "Mot de passe" } %>
+    </div>
+
+    <div class="form-actions mt-5">
+      <%= f.button :submit, "Se connecter", class: "btn btn-success mb-5 simple-form-button fw-bold rounded-4" %>
+    </div>
+  <% end %>
+  <%= render "devise/shared/links" %>
+</div>

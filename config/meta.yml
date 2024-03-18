@@ -1,0 +1,6 @@
+ # config/meta.yml
+ meta_product_name: "CultureJam"
+ meta_title: "CultureJam - La culture, c'est comme la confiture"
+ meta_description: "Etale ta confiture sur le pain de la culture de tes amis"
+ meta_image: "cover.png" # should exist in `app/assets/images/`
+ twitter_account: "@product_twitter_account" # required for Twitter Cards

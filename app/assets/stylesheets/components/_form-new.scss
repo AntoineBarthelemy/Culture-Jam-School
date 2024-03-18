@@ -1,0 +1,67 @@
+.form-new {
+  .fade-in {
+    animation: fade-in 0.6s ease-in-out forwards;
+  }
+
+  .fade-out {
+    animation: fade-out 0.1s ease-in-out forwards;
+  }
+
+  @keyframes fade-in {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+
+  @keyframes fade-out {
+    from { opacity: 1; }
+    to { opacity: 0; }
+  }
+
+  .validated {
+    animation: shake 0.5s ease-in-out forwards;
+  }
+
+  @keyframes shake {
+    0% { transform: translateX(0); }
+    10% { transform: translateX(-10px); }
+    20% { transform: translateX(10px); }
+    30% { transform: translateX(-10px); }
+    40% { transform: translateX(10px); }
+    50% { transform: translateX(-10px); }
+    60% { transform: translateX(10px); }
+    70% { transform: translateX(-10px); }
+    80% { transform: translateX(10px); }
+    90% { transform: translateX(-10px); }
+    100% { transform: translateX(0); }
+  }
+  .tag-item {
+    display: inline-block;
+  }
+
+  .tag-selector {
+    position: absolute;
+    transform: scale(0);
+  }
+
+  .tag-selector + label {
+    cursor: pointer;
+    display: inline-block;
+    font-size: 0.7rem;
+    border-radius: 50rem;
+    padding: 0.1rem 0.5rem;
+    background-color: white;
+    color: #272727;
+    border: 1px solid #40FA43;
+    margin-right: 0.6rem;
+    margin-bottom: 0.4rem;
+    font-size: large;
+  }
+
+  .tag-selector:checked + label {
+    background-color: #40FA43;
+    color: #272727;
+  }
+  legend.col-form-label {
+    display: none!important;
+  }
+}

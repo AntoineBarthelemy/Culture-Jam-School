@@ -1,0 +1,74 @@
+.profile-page {
+
+  h1 {
+    font-size: 25px;
+    font-weight: 600;
+    margin-top: 30px;
+  }
+
+  h6 {
+    font-size: 20px;
+    color: #889090;
+    margin-bottom: 20px;
+  }
+
+  .follow {
+    color: white;
+    font-family: $headers-font;
+  }
+
+  .small-icon {
+    font-size: 20px;
+    margin-left: 5px;
+  }
+
+  .personal-infos {
+    align-items: center;
+
+    .avatar {
+      height: 100px;
+      width: 100px;
+      margin-right: 20px;
+      margin-bottom: 10px;
+    }
+
+    .infos h2 {
+      font-size: 40px;
+    }
+  }
+
+  .reviews-title {
+    margin-left: 1rem;
+  }
+
+  .img-toi {
+    max-height: 250px;
+    height: 250px;
+    object-fit: cover;
+    width: 100%;
+    border-radius: 30px;
+  }
+
+  .card {
+    background-color: $dark-gray;
+    margin-bottom: 1.25rem;
+    border-radius: 40px;
+    border: none;
+    padding: 20px;
+    color: white;
+    margin-right: 1rem;
+    margin-left: 1rem;
+
+    .reviews-info-profile {
+      padding-top: 15px;
+
+      .stars {
+        margin-top: 0px;
+      }
+
+      .sizing-review {
+        margin-bottom: 0.25rem;
+      }
+    }
+  }
+}

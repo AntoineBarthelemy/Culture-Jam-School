@@ -1,0 +1,74 @@
+.form-new {
+
+ .is-valid {
+  --bs-form-select-bg-icon: "" !important;
+  padding-right: 0.875rem !important;
+  }
+
+  .ts-control {
+  border: none !important;
+  }
+
+  .container.fullheight {
+  margin-top: 30px;
+  margin-bottom: 40px;
+  }
+
+  h1, .h1 {
+  font-size: 25px;
+  margin-bottom: 2rem;
+  }
+
+  .btn-secondary {
+  position: fixed;
+  top: 10px;
+  right: 10px;
+  width: 50px;
+  height: 50px;
+  font-size: 36px;
+  border-radius: 50%;
+  color: white;
+  z-index: 9999;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transform: rotate(45deg);
+  transition: border-color 0.3s;
+
+  &:hover {
+    background-color: lightgray;
+    border: none;
+  }
+  }
+
+  .custom-file-upload {
+  color: black;
+  background-color: #40FA43;
+  padding: 10px 15px;
+  border-radius: 10px;
+  cursor: pointer;
+  }
+
+  .form-control, .form-select, .ts-control input, .ts-dropdown-content {
+    font-size: large;
+  }
+  [data-star-rating] {
+    z-index: 1;
+  }
+
+  .btn-next {
+    padding: 10px 20px;
+    background: transparent;
+    border: none;
+  }
+  .btn-next i {
+    font-size: 40px;
+  }
+
+  [data-star-rating] .gl-star-rating--stars[aria-label]::after {
+    display: none;
+  }
+  .ts-dropdown, .ts-control, .ts-control input {
+    font-size: 20px;
+  }
+}

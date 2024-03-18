@@ -1,0 +1,162 @@
+.my-feed {
+
+
+  padding-bottom: 80px;
+
+  .filter-category{
+    display: flex;
+    justify-content: space-evenly;
+  }
+
+  .avatar {
+    height: 40px;
+    width: 40px;
+  }
+
+  .part {
+    padding-bottom: 50px;
+  }
+
+  .photo {
+    width: 130px;
+    height: 130px;
+    border-radius: 30px;
+    object-fit: cover;
+  }
+
+  .card {
+    background-color: $flashy-green;
+    margin-bottom: 1.25rem;
+    padding: 12px;
+    border-radius: 40px;
+    align-items: center;
+    max-height: 10rem;
+    height: 10rem;
+
+    .max-title {
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      max-width: 215px;
+
+      font-weight: 600;
+      color: black;
+      margin-bottom: 3px;
+    }
+
+    .infos {
+      margin-left: 0.5rem;
+      color: black;
+
+      .other-reviews {
+        font-size: 15px;
+        color: black;
+        margin-top: -5px;
+        margin-left: 11px;
+      }
+    }
+  }
+
+  .img-toi {
+    width: 110px;
+    height: 110px;
+    object-fit: cover;
+    border-radius: 25%;
+    margin-right: 5px;
+  }
+
+  .avatars-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+  }
+
+  .litterature {
+    background-color: $flashy-green;
+  }
+  .litterature-color {
+    color: $flashy-green
+  }
+  .active-litterature {
+    border: 2px solid $flashy-green;
+    border-radius: 10px;
+  }
+
+  .cinema {
+    background-color: $flashy-pink;
+  }
+  .active-cinema {
+    border: 2px solid $flashy-pink;
+    border-radius: 10px;
+  }
+  .cinema-color {
+    color: $flashy-pink
+  }
+
+  .spectacle {
+    background-color: $flashy-yellow;
+  }
+  .spectacle-color {
+    color: $flashy-yellow;
+  }
+  .active-spectacle {
+    border: 2px solid $flashy-yellow;
+    border-radius: 10px;
+  }
+
+  .exposition {
+    background-color: $flashy-purple;
+  }
+  .exposition-color {
+    color: $flashy-purple;
+  }
+  .active-exposition {
+    border: 2px solid $flashy-purple;
+    border-radius: 10px;
+  }
+
+
+  .bg-color-4 {
+    background-color: $flashy-pink;
+  }
+
+  .user-rating {
+    line-height: 20px;
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+
+    .user {
+      font-size: 15px;
+      color: #343a40;
+    }
+  }
+
+  .user-name {
+    display: inline-block;
+    margin-left: 10px;
+    vertical-align: middle;
+  }
+
+  a {
+    text-decoration: none !important;
+  }
+
+  h2, p {
+    color: black;
+    margin-bottom: 0px;
+  }
+
+  h2 {
+    font-size: 22px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 220px;
+    max-height: 3.7rem;
+  }
+
+  h3 {
+    padding: 1.5rem;
+    font-size: 22px;
+  }
+
+}

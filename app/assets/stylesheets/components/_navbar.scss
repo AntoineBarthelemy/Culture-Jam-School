@@ -1,0 +1,20 @@
+
+.custom-navbar-gray {
+  background: $dark-gray;
+}
+
+.navbar-lewagon {
+  justify-content: space-between;
+}
+
+.navbar-lewagon .navbar-collapse {
+  flex-grow: 0;
+}
+
+.navbar-lewagon .navbar-brand img {
+  width: 40px;
+}
+
+.custom-navbar-height {
+  height: 70px;
+}

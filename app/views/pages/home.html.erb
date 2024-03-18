@@ -1,0 +1,36 @@
+<% if current_user&.permitted? %>
+  <div id="welcome-message" class="welcome-animation mt-6" style="margin-top: 60%; margin-left: 10%;">
+    <h2 class="fa-2x">Bienvenue</h2>
+    <h3 class="fw-bold text-primary fa-3x"><%= current_user.username %></h3>
+  </div>
+  <script>
+    setTimeout(function() {
+      window.location.href = '<%= my_feed_path %>';
+    }, 1500);
+  </script>
+<% else %>
+
+  <div class="unlock-page">
+
+    <h1 class="culture-jam-title">CultureJam</h1>
+
+    <div class="slogan">
+      <h3>Découvre,</h3>
+
+      <div class="d-flex justify-content-center align-items-center mb-2">
+        <i class="text-white fa-solid fa-lock fa-2xl me-2 animate__animated animate__headShake animate__infinite locked-icon"></i>
+        <div class="unlock-actions">
+          <%= link_to new_post_path do %>
+            <h3 class="btn">débloque</h3>
+          <% end %>
+        </div>
+      </div>
+
+      <h3>& partage !</h3>
+    </div>
+
+  </div>
+
+<% end %>
+
+

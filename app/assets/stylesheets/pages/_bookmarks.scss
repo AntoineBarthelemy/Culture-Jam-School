@@ -1,0 +1,157 @@
+.bookmarks {
+
+  padding-bottom: 80px;
+
+  h2 {
+    margin-bottom: 0px;
+    margin-left: 10px;
+  }
+
+  h3 {
+    font-size: 24px;
+    line-height: 55px;
+  }
+
+  .text-resume {
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 3;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+
+  .custom-category-filter {
+    overflow-x: auto;
+    width: 100%;
+    padding-bottom: 10px;
+  }
+
+  .category-btn {
+    font-family: $headers-font;
+    margin-right: 10px;
+    padding: 5px 10px;
+    border-radius: 10px;
+    background-color: gray;
+    color: white;
+    transition: background-color 0.3s, color 0.3s;
+
+    &:hover {
+      background-color: $flashy-green;
+      color: black;
+    }
+
+    &.active {
+      background-color: $flashy-green;
+      color: black;
+    }
+  }
+
+  .filter-clear-btn {
+    position: absolute;
+    top: 5px;
+    right: 10px;
+    font-size: 12px;
+    cursor: pointer;
+  }
+
+  .white-text {
+    color: white;
+  }
+
+  .bookmarks-container {
+    overflow-x: auto;
+    white-space: nowrap;
+
+    .bookmarks-list {
+      display: flex;
+      flex-wrap: nowrap;
+      overflow-x: auto;
+      overflow: scroll;
+      scrollbar-color: #E0FA41 #7B7BFF;
+      scrollbar-width: thin;
+
+      .bookmark-item {
+        flex-shrink: 0;
+        width: calc(50% - 10px);
+        margin-right: 18px;
+        margin-bottom: 10px;
+      }
+    }
+
+    .grid-view {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+
+    .bookmark-img-wrapper {
+      position: relative;
+      width: 175px;
+      height: 175px;
+      border-radius: 20px;
+      overflow: hidden;
+
+      .bookmark-title {
+        position: absolute;
+        bottom: 5px;
+        right: 5px;
+        background-color: rgba(255, 255, 255, 0.8);
+        padding: 5px;
+        border-radius: 5px;
+        font-size: 12px;
+        color: #7B7BFF;
+        max-width: 150px;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+        overflow: hidden;
+      }
+
+      .bookmark-img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+    }
+
+    .category-section {
+      transition: opacity 0.5s ease-in-out;
+      margin-top: 20px;
+    }
+
+    a {
+      color: #7B7BFF;
+      font-family: $headers-font;
+    }
+  }
+
+  .cinema.active.category-btn {
+    background-color: $flashy-pink !important;
+  }
+
+  .spectacle.active.category-btn {
+    background-color: $flashy-yellow !important;
+  }
+
+  .exposition.active.category-btn {
+    background-color: $flashy-purple !important;
+  }
+
+  .see-all-link {
+    &.litterature{
+      color: $flashy-green;
+    }
+
+    &.cinema {
+      color: $flashy-pink;
+    }
+
+    &.spectacle {
+      color: $flashy-yellow;
+    }
+
+    &.exposition {
+      color: $flashy-purple;
+    }
+  }
+}

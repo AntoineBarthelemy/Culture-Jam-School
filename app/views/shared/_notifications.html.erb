@@ -1,0 +1,21 @@
+<div class="dropdown-center" data-controller="read-notifications notification-subscription" data-action="show.bs.dropdown->read-notifications#read" data-read-notifications-path-value="<%= read_notifications_user_path(user) %>" data-notification-subscription-user-id-value="<%= current_user.id %>">
+  <button class="text-center bg-white rounded-circle  p-2" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+          <i class="fa-solid fa-bars  fa-solid fa-bell fa-2x icon-menu-bar position-relative">
+            <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger cpt-notif <%= "d-none" unless user.unread_notifications.count > 0 %>"
+            data-notification-subscription-target="cpt"> <%= user.unread_notifications.count %> </span>
+          </i>
+  </button>
+    <ul class="dropdown-menu dropdown-menu-end bg-white mt-2 rounded-4 p-2 menu-notif" style="width: max-content" data-notification-subscription-target="notifContainer">
+      <strong><p class="me-1 mb-0 <%= "d-none" if user.notifications.present? %>" data-notification-subscription-target="noNotif">Pas de notifications</p></strong>
+      <% if user.notifications.present? %>
+        <% user.notifications.sort_by { |notif| notif.created_at }.reverse.each do |notif| %>
+          <% if notif.post %>
+            <%= render "shared/post_notification", post: notif.post, notif: notif %>
+          <% end %>
+          <% if notif.friend %>
+            <%= render "shared/friend_notification", user: notif.friend.follower, notif: notif %>
+          <% end %>
+        <% end %>
+      <% end %>
+    </ul>
+</div>

@@ -1,0 +1,32 @@
+.simple-form-input {
+  border: 2px solid white;
+  border-radius: 10px;
+  background-color: white;
+  color: black;
+  padding: 10px;
+  margin-bottom: 10px;
+  transition: border-color 0.3s;
+
+  &:focus {
+    border: 2px solid $flashy-green;
+    background-color: white;
+  }
+
+  &:not(:hover) {
+    border-color: white;
+  }
+}
+
+.simple-form-button {
+  display: block;
+  margin: 0 auto;
+  font-size: 1.5rem;
+  padding: 10px 20px;
+  border-radius: 10px;
+  background-color: $flashy-green;
+}
+
+.placeholder-white::placeholder {
+  color: white;
+  opacity: 25%;
+}

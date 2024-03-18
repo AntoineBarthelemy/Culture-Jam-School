@@ -1,0 +1,123 @@
+<div class="container d-flex flex-column form-new fullheight justify-content-center" id="resize-button" data-controller="step-form">
+
+  <%= simple_form_for @post,
+                      html: {
+                        data: {
+                          controller: 'post-form'
+                        }
+                      } do |f| %>
+
+    <%# ETAPE 1 : JE SELECTIONNE UN TOI %>
+  <section class="form-step-1 d-none" data-step-form-target="step1">
+    <%= f.input :toi,
+                collection: Toi.all,
+                label_method: :title,
+                value_method: :title,
+                label: false,
+                wrapper: false,
+                input_html: {
+                  class: 'simple-form-input no-hover',
+                  placeholder: "J'ai un avis sur ...",
+                  data: {
+                    post_form_target: 'selectInput',
+                    action: 'input->post-form#showToiInputs'
+                  }
+                } %>
+
+      <%# ETAPE 1-BIS : LE TOI N'EXISTE PAS %>
+    <div class="d-none" data-post-form-target="newToiForm">
+      <%= f.simple_fields_for(:toi) do |ff| %>
+        <%= ff.input :description,
+                      placeholder: "Description",
+                      label: false,
+                      input_html: {
+                        class: 'simple-form-input'
+                      } %>
+        <%= ff.association :category,
+                            as: :check_boxes,
+                            prompt: "Choisis ta catégorie",
+                            placeholder: "Catégorie",
+                            label: false,
+                            item_wrapper_class: 'tag-item',
+                            input_html: {
+                              class: "simple-form-input tag-selector",
+                              data: {
+                                action: 'input->post-form#showInputs'
+                              }
+                            } %>
+
+        <%#= ff.input :photo,
+                      as: :file,
+                      placeholder: "Image",
+                      label: false,
+                      input_html: {
+                        class: 'simple-form-input'
+                      } %>
+        <div class="mb-3 d-flex justify-content-start">
+          <label for="photo-upload" class="custom-file-upload" data-post-form-target="label">
+            <i class="fa-solid fa-camera"></i> Choisis une photo
+          </label>
+          <%= f.file_field :photo, class: "simple-form-input d-none", id: "photo-upload", data: { post_form_target: 'input' } %>
+        </div>
+      <% end %>
+    </div>
+    <button class="btn-next float-end" data-action="click->step-form#next" data-step-form-target="nextButton">
+      <i class="fw-bold text-primary fa-solid fa-arrow-right"></i>
+    </button>
+  </section>
+
+  <section class="form-step-2 d-none" data-step-form-target="step2">
+      <%# ETAPE 2 : UN RATING, UN COMMENTAIRE %>
+
+    <%= f.input :review,
+                placeholder: "Et c'était...",
+                label: false,
+                input_html: {
+                  rows: 4,
+                  class: 'simple-form-input',
+                } %>
+
+    <%# <%= f.button :submit,
+                  "Partager",
+                  class: "btn btn-success mt-3 simple-form-button"%>
+
+  <div class="d-flex justify-content-between align-items-center">
+    <%= f.input :rating,
+                placeholder: "Note",
+                collection: (1..5),
+                include_blank: "Donne une note",
+                label: false,
+                input_html: {
+                  class: 'simple-form-input',
+                  data: {
+                    controller: "star-rating",
+                  }
+                } %>
+    <button type="submit" class="btn-next p-0 float-end me-4">
+      <i class="fw-bold text-primary fa-solid fa-check"></i>
+    </button>
+  </div>
+
+  <div class="spinner d-none" data-post-form-target="spinner">
+    <div class="spinner-border text-primary" role="status">
+      <span class="visually-hidden">Loading...</span>
+    </div>
+  </div>
+
+  </section>
+
+
+    <% if @post.errors.any? %>
+      <div id="error_explanation">
+        <h2><%= pluralize(@post.errors.count, "error") %> prohibited this post from being saved:</h2>
+        <ul>
+          <% @post.errors.full_messages.each do |message| %>
+            <li><%= message %></li>
+          <% end %>
+        </ul>
+      </div>
+    <% end %>
+
+  <% end %>
+
+</div>

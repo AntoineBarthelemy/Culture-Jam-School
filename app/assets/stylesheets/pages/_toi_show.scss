@@ -1,0 +1,207 @@
+.container-position {
+  margin-top: -40px;
+  margin-bottom: 60px;
+
+  .user-created-post {
+    line-height: 10px;
+    font-family: $headers-font;
+    margin-bottom: 1rem;
+
+    .date {
+      font-size: 12px;
+      color: gray;
+    }
+  }
+}
+
+.toi-show {
+  .hype-meter {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    height: 50px;
+    border-radius: 25px;
+    padding: 0 10px;
+    overflow: hidden;
+  }
+
+  .hype-meter .progress-bar {
+    width: 100%;
+    background-size: 200% 100%;
+    background-position: right bottom;
+    background-repeat: no-repeat;
+    transition: background-position 0.5s ease;
+    overflow: visible;
+    border-radius: 60px;
+  }
+  .litterature-meter {
+    background-image: linear-gradient(to right, #fff 0%, #fff 50%, #F9FEDD 50%, #40FA43 100%);
+
+  }
+  .cinema-meter {
+    background-image: linear-gradient(to right, #fff 0%, #fff 50%, #F9FEDD 50%, #FFA8FF 100%);
+
+  }
+  .spectacle-meter {
+    background-image: linear-gradient(to right, #fff 0%, #fff 50%, #F9FEDD 50%, #E0FA41 100%);
+
+  }
+  .exposition-meter {
+    background-image: linear-gradient(to right, #fff 0%, #fff 50%, #F9FEDD 50%, #7B7BFF 100%);
+  }
+
+  .progress {
+    overflow: visible;
+    border-radius: 60px;
+  }
+
+  .hype-meter .avatar {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    margin-right: 5px;
+    border: 1px solid white;
+  }
+
+  .hype-meter .count {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    font-size: 14px;
+    font-weight: bold;
+    top: 65%;
+    transform: translateY(-50%);
+    color: #EBEBEB;
+    background-color: #272727;
+  }
+
+  .bookmark-wrapper {
+    margin-right: 10px;
+    margin-top: 5px;
+  }
+
+  a {
+    text-decoration: none;
+  }
+
+  h1 {
+    font-weight: 600;
+    margin-left: 1rem;
+  }
+
+  h3 {
+    font-weight: 600;
+  }
+
+  p {
+    font-size: 300;
+  }
+
+  .toi {
+    // position: relative;
+    top: -70px;
+  }
+
+  .litterature {
+    background-color: $flashy-green;
+  }
+  .litterature-color {
+    color: $flashy-green;
+  }
+  .litterature-border {
+    position: relative;
+    border-radius: 40px;
+    margin: 1rem;
+    margin-bottom: 1.5rem;
+  }
+  .litterature-border::before {
+    content: '';
+    position: absolute;
+    top: -4px;
+    right: -4px;
+    bottom: -4px;
+    left: -4px;
+    z-index: -1;
+    background-image: linear-gradient(45deg, $flashy-green, white);
+    border-radius: inherit;
+    background-clip: padding-box;
+  }
+
+  .cinema {
+    background-color: $flashy-pink;
+  }
+  .cinema-color {
+    color: $flashy-pink;
+  }
+  .cinema-border {
+    position: relative;
+    border-radius: 40px;
+    margin: 1rem;
+    margin-bottom: 1.5rem;
+  }
+  .cinema-border::before {
+    content: '';
+    position: absolute;
+    top: -4px;
+    right: -4px;
+    bottom: -4px;
+    left: -4px;
+    z-index: -1;
+    background-image: linear-gradient(45deg, $flashy-pink, white);
+    border-radius: inherit;
+    background-clip: padding-box;
+  }
+
+  .spectacle {
+    background-color: $flashy-yellow;
+  }
+  .spectacle-color {
+    color: $flashy-yellow;
+  }
+  .spectacle-border {
+    position: relative;
+    border-radius: 40px;
+    margin: 1rem;
+    margin-bottom: 1.5rem;
+  }
+  .spectacle-border::before {
+    content: '';
+    position: absolute;
+    top: -4px;
+    right: -4px;
+    bottom: -4px;
+    left: -4px;
+    z-index: -1;
+    background-image: linear-gradient(45deg, $flashy-yellow, white);
+    border-radius: inherit;
+    background-clip: padding-box;
+  }
+
+  .exposition {
+    background-color:$flashy-purple;
+  }
+  .exposition-color {
+    color:$flashy-purple;
+  }
+  .exposition-border {
+    position: relative;
+    border-radius: 40px;
+    margin: 1rem;
+    margin-bottom: 1.5rem;
+  }
+  .exposition-border::before {
+    content: '';
+    position: absolute;
+    top: -4px;
+    right: -4px;
+    bottom: -4px;
+    left: -4px;
+    z-index: -1;
+    background-image: linear-gradient(45deg, $flashy-purple, white);
+    border-radius: inherit;
+    background-clip: padding-box;
+  }
+}

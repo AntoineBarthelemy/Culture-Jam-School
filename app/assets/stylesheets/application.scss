@@ -1,0 +1,38 @@
+// Graphical variables
+@import "config/fonts";
+@import "config/colors";
+@import "config/bootstrap_variables";
+
+// External libraries
+@import "bootstrap";
+@import "font-awesome";
+
+// Components
+@import "components/index";
+@import "components/menu_bar";
+@import "components/top_bar";
+@import "components/form-new";
+
+//Pages
+@import "pages/index";
+@import "pages/toi_show";
+@import "pages/toi_index";
+@import "pages/my_feed";
+@import "pages/new";
+@import "pages/bookmarks";
+@import "pages/profile";
+@import "pages/search";
+
+/* Define a transition duration during page visits */
+html.is-changing .transition-fade {
+  transition: opacity 0.25s;
+  opacity: 1;
+}
+/* Define the styles for the unloaded pages */
+html.is-animating .transition-fade {
+  opacity: 0;
+}
+
+.fa-bell {
+  color: $black;
+}

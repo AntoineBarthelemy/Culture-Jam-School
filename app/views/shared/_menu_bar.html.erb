@@ -1,0 +1,49 @@
+<nav class="navbar fixed-bottom navbar-expand-sm bg-white footer-height menu-bar custom-navbar-height">
+  <div class="container-fluid d-flex justify-content-between align-items-center mx-2">
+    <!-- Partie gauche -->
+    <div class="d-flex">
+      <%= link_to my_feed_path do %>
+        <div class="text-center p-2">
+        <i class="fa-solid fa-house fa-2x icon-menu-bar <%= 'active' if (controller_name == 'tois' && action_name == 'show' && request.referer.include?('my_feed') || (controller_name == 'pages')) %>"></i>
+        </div>
+      <% end %>
+
+      <!-- Espace vide -->
+      <div class="p-3"></div>
+
+      <%= link_to tois_path do %>
+        <div class="text-center p-2">
+        <i class="fa-solid fa-bolt fa-2x icon-menu-bar <%= 'active' if
+        (controller_name == 'tois' && !request.referer.include?('my_feed') ||
+        (controller_name == 'tois' && action_name == 'show' && !request.referer.include?('my_feed')) ||
+        (controller_name == 'tois' && action_name == 'index' && request.referer.include?('my_feed'))) %>"></i>
+        </div>
+      <% end %>
+    </div>
+
+    <!-- Partie centrale -->
+    <div class="text-center">
+      <%= link_to new_post_path do %>
+        <i class="fa-solid fa-circle-plus plus-menu-bar fa-3x"></i>
+      <% end %>
+    </div>
+
+    <!-- Partie droite -->
+    <div class="d-flex">
+      <%= link_to bookmarks_path do %>
+        <div class="text-center p-2">
+          <i class="fa-solid fa-bookmark fa-2x icon-menu-bar <%= 'active' if controller_name == 'bookmarks' %>"></i>
+        </div>
+      <% end %>
+
+      <!-- Espace vide -->
+      <div class="p-3"></div>
+
+      <div class="d-flex align-self-center">
+        <%= link_to user_path(current_user) do %>
+            <%= cl_image_tag current_user.photo.key, crop: :fill, alt: "avatar", class:"avatar-circle" %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</nav>

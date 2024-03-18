@@ -1,0 +1,89 @@
+.welcome-animation {
+  opacity: 0;
+  animation: fadeInAnimation ease 3s;
+  animation-iteration-count: 1;
+  animation-fill-mode: forwards;
+}
+
+@keyframes fadeInAnimation {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+.page-transition {
+  animation: pageFadeIn 0.5s ease-out;
+}
+
+
+@keyframes pageFadeIn {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+.sizing-review {
+  text-overflow: ellipsis;
+  overflow: hidden;
+  -webkit-line-clamp: 3;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  padding-left: 0.25em;
+}
+
+.sign-in .form-control {
+  color: white !important;
+}
+
+html {
+  overscroll-behavior: none!important;
+}
+
+.gl-star-rating--stars[aria-label]::after {
+  content: "Choose a rating" !important;
+}
+
+#resize-button .row {
+  flex-direction: column-reverse;
+}
+
+#suivi{
+  display: inline;
+}
+
+.color-star{
+  color: black !important;
+}
+
+::-webkit-scrollbar {
+  display: none;
+}
+
+.notice {
+  background-color: white;
+  color: black;
+  border-color: #40FA43;
+  border-width: 2px;
+  border-radius: 15px;
+}
+
+.alert {
+  background-color: white;
+  color: black;
+  border-color: #40FA43;
+  border-width: 2px;
+  border-radius: 15px;
+}
+
+button:active {
+  box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.2);
+  transform: translate(2px, 2px);
+}

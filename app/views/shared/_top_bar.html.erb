@@ -1,0 +1,36 @@
+<nav class="navbar sticky-top navbar-expand-sm py-2 footer-height menu-bar custom-navbar-height top-bar">
+  <div class="container-fluid d-flex align-items-center">
+
+    <!-- Retour page précedente -->
+    <!-- <div class="d-flex">
+      <%= link_to :back do %>
+        <div class="text-center bg-white rounded-circle p-2 me-2 ">
+          <i class="fa-solid fa-arrow-left text-white fa-2x icon-menu-bar"></i>
+        </div>
+      <% end %>
+    </div> -->
+    <div class="d-flex" data-controller="back" data-action="click->back#goBack">
+      <% if request.referer %>
+        <%= button_to :back, class: "text-center bg-white rounded-circle account p-2" do %>
+          <i class="fa-solid fa-chevron-left text-white fa-2x icon-menu-bar"></i>
+        <% end %>
+      <% end %>
+    </div>
+
+    <div class="d-flex">
+    <!-- Paramètres user -->
+      <div class="dropdown-center rounded-4 me-2">
+        <button class="text-center bg-white rounded-circle account p-2" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                <i class="fa-solid fa-bars text-white fa-2x icon-menu-bar"></i>
+        </button>
+        <ul class="dropdown-menu dropdown-menu-end bg-white mt-2 rounded-4">
+          <li><%= button_to 'Se déconnecter', destroy_user_session_path, method: :delete , class: 'dropdown-item' %></li>
+          <li><%= button_to 'Depermit', user_path(current_user), method: :patch , class: 'dropdown-item' %></li>
+        </ul>
+      </div>
+
+    <!-- Notifications-->
+      <%= render "shared/notifications", user: current_user %>
+    </div>
+  </div>
+</nav>

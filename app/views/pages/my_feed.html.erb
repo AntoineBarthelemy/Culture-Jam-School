@@ -1,0 +1,101 @@
+<div class="container my-feed fullheight">
+
+  <div class="page-title">
+    <%= link_to my_feed_path do %>
+       <h1>Mon<br>fil<i class="fa-solid fa-play icon-logo fa-rotate-90"></i></h1>
+    <% end %>
+  </div>
+  <div class="filter-category align-center">
+    <%= link_to (params[:filter_criteria] == "cinema" ? my_feed_path : my_feed_path(filter_criteria: "cinema")) do %>
+      <div class="text-center p-2  <%= 'active-cinema' if (params[:filter_criteria] == "cinema") %>">
+        <i class="fa-solid fa-film fa-2x category-icon-box cinema-color"></i>
+      </div>
+    <% end %>
+
+    <%= link_to (params[:filter_criteria] == "spectacle" ? my_feed_path : my_feed_path(filter_criteria: "spectacle")) do %>
+      <div class="text-center p-2  <%= 'active-spectacle' if (params[:filter_criteria] == "spectacle") %>">
+        <i class="fa-solid fa-masks-theater fa-2x category-icon-box spectacle-color"></i>
+      </div>
+    <% end %>
+
+    <%= link_to (params[:filter_criteria] == "litterature" ? my_feed_path : my_feed_path(filter_criteria: "litterature")) do %>
+      <div class="text-center p-2  <%= 'active-litterature' if (params[:filter_criteria] == "litterature") %>">
+        <i class="fa-solid fa-book fa-2x category-icon-box litterature-color"></i>
+      </div>
+    <% end %>
+    <%= link_to (params[:filter_criteria] == "exposition" ? my_feed_path : my_feed_path(filter_criteria: "exposition")) do %>
+    <div class="text-center p-2  <%= 'active-exposition' if (params[:filter_criteria] == "exposition") %>">
+      <i class="fa-solid fa-building-columns fa-2x category-icon-box exposition-color"></i>
+    </div>
+    <% end %>
+  </div>
+
+  <% if @posts_this_week.size > 0 %>
+    <h3 class="text-white"> Postés cette semaine...</h3>
+    <div class="part">
+      <% @posts_this_week.each do |toi, posts| %>
+        <% most_recent_post = posts.first %>
+
+        <%= link_to toi_path(toi) do %>
+          <div class="card flex-row justify-content-between <%= toi.category.name.downcase %>">
+
+            <div class="infos">
+                  <h2 class="max-title"><%= toi.title  %></h2>
+                  <div class="d-flex user-rating">
+                    <%= cl_image_tag  most_recent_post.user.photo.key, class: "avatar"  %>
+                    <div>
+                      <p class="user">@<%= most_recent_post.user.username %></p>
+                      <%= most_recent_post.starify(most_recent_post.rating).html_safe %>
+                    </div>
+                  </div>
+                  <% if posts.size > 2 %>
+                    <div class="other-reviews">
+                      <%#= pluralize(posts.size - 1, 'autres avis') %>
+                      <%# <p>Voir les autres avis</p> %>
+                      <i class="fa-solid fa-comments"></i>
+                      <%= "#{pluralize(posts.size - 1, 'autres avis')}" %>
+                    </div>
+                  <% elsif posts.size == 2 %>
+                    <div class="other-reviews">
+                      <i class="fa-solid fa-comments"></i>
+                      <%= "#{pluralize(posts.size - 1, 'autre avis')}" %>
+                    </div>
+                  <% end %>
+              </div>
+            <%= cl_image_tag toi.photo.key, height: 300, crop: :fill, class: "img-toi" %>
+          </div>
+        <% end %>
+      <% end %>
+   </div>
+  <% end %>
+
+  <h3 class="text-white mb-2"> Il y a un peu plus longtemps...</h3>
+  <% @posts_previous_weeks.each do |toi, posts| %>
+    <% most_recent_post = posts.first %>
+
+    <%= link_to toi_path(toi) do %>
+      <div id="avatar-size" class="card flex-row justify-content-between <%= cycle('bg-color-1', 'bg-color-2', 'bg-color-3', 'bg-color-4') %>">
+        <div class="p-1">
+          <div class="infos mb-2">
+              <h2 class="fw-bold"><%= toi.title  %></h2>
+              <div class="d-flex">
+                <%= cl_image_tag  most_recent_post.user.photo.key, class: "avatar"  %>
+                <div>
+                  <p class="user">@<%= most_recent_post.user.username %></p>
+                  <%= most_recent_post.starify(most_recent_post.rating).html_safe %>
+                </div>
+              </div>
+              <% if posts.size > 1 %>
+                <%# <div class="fw-bold"> %>
+                  <%#= pluralize(posts.size - 1, ' autres avis') %>
+                  <p>Voir les autres avis</p>
+                <%# </div> %>
+              <% end %>
+          </div>
+        </div>
+        <%= cl_image_tag toi.photo.key, height: 300, crop: :fill, class: "img-toi" %>
+      </div>
+    <% end %>
+  <% end %>
+
+</div>
