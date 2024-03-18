@@ -1,3 +1,7 @@
+## Project Title
+
+Culture Jam: Culture is like Jam
+
 ## Table of Contents
 
 - [Project Overview](#project-overview)
