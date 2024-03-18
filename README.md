@@ -3,7 +3,7 @@
 Culture Jam: Culture is like Jam.
 
 ## Introduction
-Soon
+Culture Jam is an web app that work fully on mobile device (not responsive yet). It's an app designed and thought for drastically change the normal usage of social media. Culture Jam emphasize on an intelligent usage of social media. In a nutshell users can share their interests on the platform and look up their friends' interests as well. Idea come from to a lack of diversity and interest in these ones. Allow people to broaden their curiosity and discover out of range activities.    
 
 ## Table of Contents
 
