@@ -21,7 +21,7 @@ Neither installation is required, just your device and a connexion. That's it !
 To use the Culture Jam web app, follow these steps:
 
 1. Go via your mobile web browser.
-2. Log you with anything or for best result oscar as username and 123456 as password.
+2. Sign you with anything or for the best result you should be log with oscar as username and 123456 as password.
 4. Discorver the app and enjoy your navigation.
 
 ## Contributors
